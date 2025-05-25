@@ -1,9 +1,14 @@
+import os
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+from dotenv import load_dotenv
 
-CLIENT_ID = 'aae93f805cb54732a5f5b90926e1f330'
-CLIENT_SECRET = '484b89a740f64fadb86fef06e0455a8b'
-REDIRECT_URI = 'http://127.0.0.1:8888/callback'  # updated loopback IP
+
+CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID")
+CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET")
+REDIRECT_URI = os.getenv("SPOTIPY_REDIRECT_URI")
+
+load_dotenv()
 
 # Permissions your app needs
 scope = "user-read-recently-played user-library-read"
